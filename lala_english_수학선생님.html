@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강한나 수학학원 수학 선생님</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+:root {
+  --slate: #2e3d52;
+  --slate-light: #3d5068;
+  --bg: #f4f5f7;
+  --white: #ffffff;
+  --border: #dde1e8;
+  --text: #1c2535;
+  --muted: #7a8599;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(46,61,82,0.07);
+  --shadow-hover: 0 8px 28px rgba(46,61,82,0.14);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; min-height: 100vh; }
+
+.site-header {
+  background: var(--slate);
+  height: 66px; padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 24px rgba(46,61,82,0.3);
+}
+
+.logo-wrap { display: flex; align-items: center; gap: 14px; }
+
+.logo-khn {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700; font-size: 28px;
+  color: #fff; letter-spacing: 4px; line-height: 1;
+}
+
+.logo-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.2); }
+
+.logo-sub { display: flex; flex-direction: column; gap: 1px; }
+.logo-sub-main { font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 0.05em; }
+.logo-sub-en { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.45); letter-spacing: 0.2em; text-transform: uppercase; }
+
+.header-right { display: flex; align-items: center; gap: 16px; }
+.badge { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: #fff; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); padding: 4px 13px; border-radius: 20px; }
+.hdate { font-size: 11px; color: rgba(255,255,255,0.35); }
+
+.hero {
+  background: linear-gradient(135deg, #1c2535 0%, var(--slate) 55%, var(--slate-light) 100%);
+  padding: 44px 48px 48px; position: relative; overflow: hidden;
+}
+.hero-deco1 { position: absolute; top: -40px; right: -40px; width: 220px; height: 220px; border-radius: 50%; border: 30px solid rgba(255,255,255,0.04); pointer-events: none; }
+.hero-deco2 { position: absolute; bottom: -60px; right: 100px; width: 160px; height: 160px; border-radius: 50%; border: 22px solid rgba(255,255,255,0.03); pointer-events: none; }
+.hero-watermark { position: absolute; right: 48px; top: 50%; transform: translateY(-50%); font-family: 'Cormorant Garamond', serif; font-size: 96px; font-weight: 700; color: rgba(255,255,255,0.04); letter-spacing: 8px; pointer-events: none; user-select: none; }
+
+.hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+.hero-title { font-family: 'Noto Sans KR', sans-serif; font-weight: 700; font-size: 28px; color: #fff; line-height: 1.25; margin-bottom: 6px; }
+.hero-title-en { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; }
+.hero-sub { font-size: 12.5px; color: rgba(255,255,255,0.4); font-weight: 300; }
+
+.content { padding: 34px 48px 52px; max-width: 1060px; }
+.category-row { margin-bottom: 26px; }
+
+.cat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9.5px; font-weight: 800; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cat-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 160px; }
+
+.cat-cards { display: flex; flex-wrap: wrap; gap: 9px; }
+
+.link-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 17px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; box-shadow: var(--shadow); text-decoration: none;
+  color: var(--text); transition: all 0.2s; width: 248px; flex: none;
+  position: relative; overflow: hidden;
+}
+.link-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2.5px; background: var(--slate); opacity: 0; transition: opacity 0.2s; }
+.link-card:hover { border-color: var(--slate); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.link-card:hover::after { opacity: 1; }
+
+.lc-title { font-size: 13px; font-weight: 700; line-height: 1.3; }
+.lc-arrow { font-size: 12px; color: var(--muted); flex-shrink: 0; transition: color 0.2s; }
+.link-card:hover .lc-arrow { color: var(--slate); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo-wrap">
+    <span class="logo-khn">KHN</span>
+    <div class="logo-divider"></div>
+    <div class="logo-sub">
+      <span class="logo-sub-main">강한나 수학학원</span>
+      <span class="logo-sub-en">Strong Na Math</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="badge">수학 선생님</span>
+    <span class="hdate" id="hdate"></span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-deco1"></div>
+  <div class="hero-deco2"></div>
+  <div class="hero-watermark">KHN</div>
+  <div class="hero-eyebrow">Teacher Page · Mathematics</div>
+  <div class="hero-title">수학 선생님 자료 모음</div>
+  <div class="hero-title-en">Strong Na Math</div>
+  <div class="hero-sub">수업에 필요한 자료를 한곳에서 빠르게 접근하세요</div>
+</div>
+
+<div class="content">
+
+  <div class="category-row">
+    <div class="cat-label">전달사항</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/18n-KzJtRXL1Q90L-oBbZbkildG0gQP9c2ezKNhoEIqA/edit?usp=sharing" target="_blank"><span class="lc-title">수학 전달사항</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">수업피드백 및 연락</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://wpa.co.kr/classtalktalk/app.html" target="_blank"><span class="lc-title">클래스톡톡</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://messages.google.com/web/u/1/conversations/Cggx8L-rYUHE3BICMTc" target="_blank"><span class="lc-title">구글 메세지</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://form.naver.com/list" target="_blank"><span class="lc-title">보강 네이버폼</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">수학 수업</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://teacher.mathflat.com/updated-contents" target="_blank"><span class="lc-title">매스플랫</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://tclass.didimdol.co.kr/" target="_blank"><span class="lc-title">TCLASS (디딤돌 e-book)</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://www.scribd.com/document/751671707/%EC%A4%91%EB%93%B1-1-2-%EB%9D%BC%EC%9D%B4%ED%8A%B8%EC%8E%88" target="_blank"><span class="lc-title">교재 참고용 사이트</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">디자인 및 홍보</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://www.canva.com/projects" target="_blank"><span class="lc-title">CANVA</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://blog.naver.com/strong_me_math?Redirect=Write&" target="_blank"><span class="lc-title">강한나 수학 블로그</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">교재비</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/1Wmen3y0Leir6uCJNbAg6EunQ8z3kDUtZKtFJt72ZUf4/edit?usp=sharing" target="_blank"><span class="lc-title">수학 교재비 확인 6월(작성중)</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">수학 기록</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/10KexnjanoQ8gM-gpO2tuLedPiuOOeSXlbKFQuytBrC0/edit?usp=sharing" target="_blank"><span class="lc-title">수학 메인 기록</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/1kws8McddyWvt0Liei9htdAeejRmOVnax6M_0Rbvme_g/edit?usp=sharing" target="_blank"><span class="lc-title">수학 문장제 연산기록</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/1af3bREBmaBIPh8i4Xs493biJjLOludCpuJx2ExfZqag/edit?gid=1463416516#gid=1463416516" target="_blank"><span class="lc-title">월말 TEST 진행 & 진도 현황</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const n=new Date(),d=['일','월','화','수','목','금','토'];
+  document.getElementById('hdate').textContent=`${n.getFullYear()}. ${n.getMonth()+1}. ${n.getDate()} (${d[n.getDay()]})`;
+})();
+</script>
+</body>
+</html>

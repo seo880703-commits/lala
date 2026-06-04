@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LALA ENGLISH 영어 선생님</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@600;700;800;900&display=swap');
+
+:root {
+  --navy: #1f2c5c;
+  --navy-light: #2a3a78;
+  --gold: #f2c640;
+  --gold-light: #fdf3cc;
+  --bg: #f6f7fb;
+  --white: #ffffff;
+  --border: #e2e6f0;
+  --text: #1a2040;
+  --muted: #7880a0;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(31,44,92,0.07);
+  --shadow-hover: 0 8px 28px rgba(31,44,92,0.14);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; min-height: 100vh; }
+
+/* HEADER */
+.site-header {
+  background: var(--navy);
+  height: 66px;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 24px rgba(31,44,92,0.28);
+}
+
+.logo-wrap { display: flex; align-items: center; gap: 11px; }
+
+/* SVG 로고 — LALA ENGLISH 마크 재현 */
+.logo-mark { width: 34px; height: 34px; flex-shrink: 0; }
+
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: #fff;
+  letter-spacing: 2.5px;
+}
+
+.header-right { display: flex; align-items: center; gap: 16px; }
+
+.badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--navy);
+  background: var(--gold);
+  padding: 4px 13px;
+  border-radius: 20px;
+}
+
+.hdate { font-size: 11px; color: rgba(255,255,255,0.38); }
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  padding: 42px 48px 46px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-deco1 {
+  position: absolute; top: -50px; right: -50px;
+  width: 240px; height: 240px; border-radius: 50%;
+  border: 36px solid rgba(242,198,64,0.08);
+  pointer-events: none;
+}
+.hero-deco2 {
+  position: absolute; bottom: -70px; right: 120px;
+  width: 180px; height: 180px; border-radius: 50%;
+  border: 26px solid rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+}
+
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; font-size: 30px;
+  color: #fff; letter-spacing: 0.3px; line-height: 1.2;
+  margin-bottom: 10px;
+}
+.hero-title .gold { color: var(--gold); }
+
+.hero-sub { font-size: 12.5px; color: rgba(255,255,255,0.45); font-weight: 300; }
+
+/* CONTENT */
+.content { padding: 34px 48px 52px; max-width: 1060px; }
+
+/* CATEGORY */
+.category-row { margin-bottom: 26px; }
+
+.cat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9.5px; font-weight: 800;
+  color: var(--muted); text-transform: uppercase;
+  letter-spacing: 0.14em; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cat-label::after {
+  content: ''; flex: 1; height: 1px;
+  background: var(--border); max-width: 160px;
+}
+
+.cat-cards { display: flex; flex-wrap: wrap; gap: 9px; }
+
+/* CARD */
+.link-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 17px 20px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 18px;
+  box-shadow: var(--shadow);
+  text-decoration: none; color: var(--text);
+  transition: all 0.2s;
+  width: 248px; flex: none;
+  position: relative; overflow: hidden;
+}
+
+.link-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 2.5px;
+  background: linear-gradient(90deg, var(--navy), var(--gold));
+  opacity: 0; transition: opacity 0.2s;
+}
+
+.link-card:hover {
+  border-color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+.link-card:hover::after { opacity: 1; }
+
+.lc-title { font-size: 13px; font-weight: 700; line-height: 1.3; }
+.lc-arrow { font-size: 12px; color: var(--muted); flex-shrink: 0; transition: color 0.2s; }
+.link-card:hover .lc-arrow { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo-wrap">
+    <svg class="logo-mark" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="34" cy="34" r="31" stroke="white" stroke-width="2.8"/>
+      <!-- 세로 중심선 (L의 세로획) -->
+      <line x1="34" y1="10" x2="34" y2="54" stroke="white" stroke-width="2.6"/>
+      <!-- A 왼쪽 다리 -->
+      <line x1="34" y1="10" x2="19" y2="54" stroke="white" stroke-width="2.6"/>
+      <!-- A 오른쪽 다리 -->
+      <line x1="34" y1="10" x2="49" y2="54" stroke="white" stroke-width="2.6"/>
+      <!-- 하단 가로선 -->
+      <line x1="16" y1="54" x2="52" y2="54" stroke="white" stroke-width="2.6"/>
+      <!-- A 크로스바 -->
+      <line x1="25" y1="38" x2="43" y2="38" stroke="white" stroke-width="2.2"/>
+      <!-- 골드 깃발 -->
+      <polygon points="34,10 46,16 34,22" fill="#f2c640"/>
+    </svg>
+    <span class="logo-text">LALA ENGLISH</span>
+  </div>
+  <div class="header-right">
+    <span class="badge">영어 선생님</span>
+    <span class="hdate" id="hdate"></span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-deco1"></div>
+  <div class="hero-deco2"></div>
+  <div class="hero-eyebrow">Teacher Page · English</div>
+  <div class="hero-title">영어 선생님 <span class="gold">자료 모음</span></div>
+  <div class="hero-sub">수업에 필요한 자료를 한곳에서 빠르게 접근하세요</div>
+</div>
+
+<div class="content">
+
+  <div class="category-row">
+    <div class="cat-label">수업피드백 및 교재배부</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://wpa.co.kr/classtalktalk/app.html" target="_blank"><span class="lc-title">클래스톡톡</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/1owugX_8EDbnH_e3kCHqlQYLfSFXhoQYDhAvcLKBt420/edit?usp=sharing" target="_blank"><span class="lc-title">MAKE UP LIST</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">교재비 및 주문</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/1tTFVfCP2dcnxlmyUdGTIqjtl1w_b92a2EoNYH7Fupp8/edit?usp=sharing" target="_blank"><span class="lc-title">영어 교재비 확인</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/1sB-8ZfQdTV0zr5-dfSKU393LY5lFZwGVCdYig3DzPRQ/edit?gid=0#gid=0" target="_blank"><span class="lc-title">교재 주문목록</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">E-BOOK</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://alist.co.kr/books/ebook.asp" target="_blank"><span class="lc-title">A LIST</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://www.classboxenglish.com/result.asp" target="_blank"><span class="lc-title">CLASS BOX</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://www.netutor.co.kr/english/index.asp?is_autoID=1" target="_blank"><span class="lc-title">NE TUTOR</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">소리영어</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://1hour.ai/kr/lesson/list/all" target="_blank"><span class="lc-title">원아워</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://www.littlefox.co.kr" target="_blank"><span class="lc-title">리틀팍스</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">수업관련</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://www.classcard.net/Main" target="_blank"><span class="lc-title">클래스카드</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://exam4you.com/" target="_blank"><span class="lc-title">중고등부 내신문제</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://ourenglishcafeacademy.com/" target="_blank"><span class="lc-title">고등부 모의고사</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">금요일 수업</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/126zIPlhxkGiQYv7-Tczdj8XwCKQBTGJJUwY2FQqHnbg/edit?usp=sharing" target="_blank"><span class="lc-title">다독체크리스트</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/1WujzGRs66scbUeNQCXxYd2xcerlFy9mrQ2nhIYMY5ww/edit?usp=sharing" target="_blank"><span class="lc-title">동시통역결과</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <div class="category-row">
+    <div class="cat-label">영어 테스트</div>
+    <div class="cat-cards">
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/1Hp1E1H7dkJFh_GfksTQ4PGOIbiUu7-Fp1OfpP6zRHjE/edit?usp=sharing" target="_blank"><span class="lc-title">라라잉글리쉬 레포트 beta</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/1zTVqwkcV0QhbpYicony-ISwqEKY3noLtrzH1u2t-lEk/edit?usp=sharing" target="_blank"><span class="lc-title">파이널 테스트 기록용 리딩</span><span class="lc-arrow">↗</span></a>
+      <a class="link-card" href="https://docs.google.com/spreadsheets/d/17GZITArwRTIg4xc2UBBI-4rgGlSd75xZAIHCL-h-nmQ/edit?usp=sharing" target="_blank"><span class="lc-title">파이널 테스트 기록용 문법</span><span class="lc-arrow">↗</span></a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const n=new Date(), d=['일','월','화','수','목','금','토'];
+  document.getElementById('hdate').textContent=`${n.getFullYear()}. ${n.getMonth()+1}. ${n.getDate()} (${d[n.getDay()]})`;
+})();
+</script>
+</body>
+</html>
